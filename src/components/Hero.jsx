@@ -22,14 +22,14 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Hi, I'm <span className="bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">Your Name</span>
+              Hi, I'm <span className="bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">Jyotiranjan Panda</span>
             </h1>
             <h2 className="text-2xl md:text-4xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
-              Software Developer
+              Software Engineer
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-              I craft elegant solutions to complex problems. Passionate about building 
-              scalable web applications and creating exceptional user experiences.
+              Java Developer with 1.5+ years of experience in Spring Boot, Microservices, and AWS. 
+              Passionate about building scalable applications and delivering high-quality solutions.
             </p>
           </motion.div>
 
@@ -47,9 +47,16 @@ const Hero = () => {
               Hire Me
             </a>
             <a
+              href="/resume/resume.pdf"
+              download="Jyotiranjan_Panda_Resume.pdf"
+              className="px-6 py-3 border-2 border-primary-600 text-primary-600 dark:text-primary-400 rounded-lg font-semibold hover:bg-primary-600 hover:text-white dark:hover:text-white transition-all duration-300"
+            >
+              Download Resume
+            </a>
+            <a
               href="#projects"
               onClick={(e) => handleScroll(e, '#projects')}
-              className="px-6 py-3 border-2 border-primary-600 text-primary-600 dark:text-primary-400 rounded-lg font-semibold hover:bg-primary-600 hover:text-white dark:hover:text-white transition-all duration-300"
+              className="px-6 py-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium"
             >
               View Projects
             </a>

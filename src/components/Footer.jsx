@@ -5,24 +5,14 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      name: 'GitHub',
-      icon: <FiGithub size={20} />,
-      url: 'https://github.com/yourusername',
-    },
-    {
       name: 'LinkedIn',
       icon: <FiLinkedin size={20} />,
-      url: 'https://linkedin.com/in/yourusername',
-    },
-    {
-      name: 'Twitter',
-      icon: <FiTwitter size={20} />,
-      url: 'https://twitter.com/yourusername',
+      url: 'https://linkedin.com/in/jyotiaranjan05',
     },
     {
       name: 'Email',
       icon: <FiMail size={20} />,
-      url: 'mailto:your.email@example.com',
+      url: 'mailto:jyotiranjanpanda568@gmail.com',
     },
   ];
 
@@ -46,10 +36,10 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Your Name
+              Jyotiranjan Panda
             </h3>
             <p className="text-gray-400 mb-4">
-              Building digital experiences that make a difference. Let's create something amazing together.
+              Java Developer specializing in Spring Boot and Microservices. Building scalable solutions with clean, maintainable code.
             </p>
           </div>
 
@@ -94,7 +84,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-6 text-center">
           <p className="text-gray-400 flex items-center justify-center gap-2">
-            © {currentYear} Your Name. Made with <FiHeart className="text-red-500" /> using React & Tailwind CSS
+            © {currentYear} Jyotiranjan Panda. Made with <FiHeart className="text-red-500" /> using React & Tailwind CSS
           </p>
         </div>
       </div>

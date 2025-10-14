@@ -64,19 +64,19 @@ const Contact = () => {
     {
       icon: <FiMail className="text-2xl" />,
       title: "Email",
-      content: "your.email@example.com",
-      link: "mailto:your.email@example.com"
+      content: "jyotiranjanpanda568@gmail.com",
+      link: "mailto:jyotiranjanpanda568@gmail.com"
     },
     {
       icon: <FiPhone className="text-2xl" />,
       title: "Phone",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      content: "+91-9861091446",
+      link: "tel:+919861091446"
     },
     {
       icon: <FiMapPin className="text-2xl" />,
       title: "Location",
-      content: "Your City, Country",
+      content: "Bhubaneswar, Odisha, India",
       link: null
     }
   ];
@@ -104,8 +104,8 @@ const Contact = () => {
               Let's work together
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-8">
-              I'm always open to discussing new projects, creative ideas, or opportunities 
-              to be part of your vision. Feel free to reach out!
+              I'm always open to discussing new opportunities, Java development projects, 
+              or collaborating on innovative solutions. Let's connect and build something amazing together!
             </p>
 
             <div className="space-y-6">

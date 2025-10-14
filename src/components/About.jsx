@@ -15,8 +15,8 @@ const About = () => {
     },
     {
       icon: <FiBriefcase className="text-3xl" />,
-      title: "5+ Years Experience",
-      description: "Proven track record of delivering successful projects across various industries"
+      title: "1.5+ Years Experience",
+      description: "Hands-on experience with Java, Spring Boot, and Microservices architecture"
     },
     {
       icon: <FiAward className="text-3xl" />,
@@ -49,7 +49,7 @@ const About = () => {
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-600 shadow-2xl">
                 {/* Replace this with your actual photo */}
                 <div className="w-full h-full bg-gradient-to-br from-primary-400 to-purple-500 flex items-center justify-center">
-                  <span className="text-white text-6xl font-bold">YN</span>
+                  <span className="text-white text-6xl font-bold">JP</span>
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center shadow-xl">
@@ -65,17 +65,17 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h3 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">
-              Passionate Developer & Creative Thinker
+              Java Developer & Microservices Expert
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              I'm a software developer with a strong foundation in modern web technologies. 
-              My journey in tech began with a curiosity about how things work, which evolved 
-              into a passion for creating innovative solutions that make a difference.
+              I'm a Software Engineer with 1.5+ years of hands-on experience in designing, developing, 
+              and deploying scalable applications using Java, Spring Boot, and Microservices architecture. 
+              My expertise spans across Spring Framework, RESTful APIs, and cloud technologies.
             </p>
             <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              With expertise in full-stack development, I specialize in building responsive, 
-              user-friendly applications. I'm constantly learning and staying up-to-date with 
-              the latest technologies to deliver cutting-edge solutions.
+              Currently working at Ajatus Software Pvt. Ltd., I've successfully delivered projects with 
+              95%+ test coverage, optimized API response times by 25%, and deployed applications on AWS. 
+              I'm passionate about writing clean, maintainable code and following Agile methodologies.
             </p>
 
             <div className="grid sm:grid-cols-3 gap-4 mt-8">
