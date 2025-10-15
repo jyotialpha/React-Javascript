@@ -47,10 +47,12 @@ const About = () => {
           >
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-600 shadow-2xl">
-                {/* Replace this with your actual photo */}
-                <div className="w-full h-full bg-gradient-to-br from-primary-400 to-purple-500 flex items-center justify-center">
-                  <span className="text-white text-6xl font-bold">JP</span>
-                </div>
+                <img 
+                  src="/photo/jyotiimage.jpeg" 
+                  alt="Jyotiranjan Panda" 
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center shadow-xl">
                 <FiCode className="text-white text-4xl" />
