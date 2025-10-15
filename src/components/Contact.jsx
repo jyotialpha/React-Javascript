@@ -32,11 +32,9 @@ const Contact = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      // Replace these with your EmailJS credentials
-      // Get them from https://www.emailjs.com/
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const serviceId = 'service_en43ire';
+      const templateId = 'template_l4erv3p';
+      const publicKey = 'Sarbg36V1Hx2PkTWA';
 
       await emailjs.sendForm(
         serviceId,
