@@ -10,12 +10,12 @@ const Projects = () => {
   // Sample projects - Replace with your actual projects
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "ICARDA",
       description: "A full-stack e-commerce application with payment integration, user authentication, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&auto=format&fit=crop",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com/yourusername/project1",
-      demo: "https://project1-demo.com"
+      image: "https://cgspace.cgiar.org/server/api/core/bitstreams/25c93f75-06a3-4b54-a4d3-df231a1c48d5/content",
+      tags: ["React", "MySQL", "Spring Boot"],
+      // github: "https://github.com/yourusername/project1",
+      demo: "https://icarda.ajatus.in/"
     },
     {
       title: "Task Management App",
@@ -89,14 +89,14 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
                   <div className="flex gap-4">
-                    <a
+                    {/* <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 bg-white rounded-full hover:bg-primary-600 hover:text-white transition-colors duration-300"
                     >
                       <FiGithub size={20} />
-                    </a>
+                    </a> */}
                     <a
                       href={project.demo}
                       target="_blank"
