@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import Timer from './Timer';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,17 +50,15 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <motion.a
-            href="#home"
-            className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent"
+          {/* Timer */}
+          <motion.div
+            className="flex items-center"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            onClick={(e) => handleNavClick(e, '#home')}
           >
-            Portfolio
-          </motion.a>
+            <Timer />
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
