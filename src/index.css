@@ -16,8 +16,35 @@
 @variant dark (.dark &);
 
 @layer base {
-  html {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  html, body {
+    @apply w-full max-w-full overflow-x-hidden;
     scroll-behavior: smooth;
+  }
+
+  body {
+    @apply relative;
+  }
+
+  /* Prevent horizontal scroll on all elements */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* Ensure images and embeds don't cause overflow */
+  img,
+  video,
+  iframe,
+  object,
+  embed {
+    max-width: 100%;
+    height: auto;
   }
 }
 
