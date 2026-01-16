@@ -28,7 +28,7 @@ const Hero = () => {
               Software Engineer
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-              Java Developer with 1.5+ years of experience in Spring Boot, Microservices, and AWS. 
+              Java Developer with 2 years of experience in Spring Boot, Microservices, and AWS. 
               Passionate about building scalable applications and delivering high-quality solutions.
             </p>
           </motion.div>
