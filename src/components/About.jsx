@@ -70,7 +70,7 @@ const About = () => {
               Java Developer & Microservices Expert
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              I'm a Software Engineer with 1.5+ years of hands-on experience in designing, developing, 
+              I'm a Software Engineer with 2 years of hands-on experience in designing, developing, 
               and deploying scalable applications using Java, Spring Boot, and Microservices architecture. 
               My expertise spans across Spring Framework, RESTful APIs, and cloud technologies.
             </p>
