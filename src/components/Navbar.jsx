@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { Link, useLocation } from 'react-router-dom';
+import { FiMenu, FiX, FiSun, FiMoon, FiCode } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import Timer from './Timer';
@@ -27,21 +28,81 @@ const Navbar = () => {
   }, [isDark]);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', isAnchor: true },
+    { name: 'About', href: '#about', isAnchor: true },
+    { name: 'Projects', href: '#projects', isAnchor: true },
+    { name: 'Skills', href: '#skills', isAnchor: true },
+    { name: 'Contact', href: '#contact', isAnchor: true },
+    { 
+      name: 'Java Practice', 
+      href: '/java-practice', 
+      isAnchor: false,
+      icon: <FiCode className="inline mr-1" />
+    },
   ];
+  
+  const location = useLocation();
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, item) => {
     e.preventDefault();
     setIsOpen(false);
     
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    if (item.isAnchor) {
+      // Handle anchor links
+      if (location.pathname !== '/') {
+        // If not on home page, navigate to home first
+        window.location.href = `/${item.href}`;
+      } else {
+        // If on home page, just scroll
+        const element = document.querySelector(item.href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Handle router links
+      window.location.href = item.href;
+    }
+  };
+  
+  // Render navigation item
+  const renderNavItem = (item, index, isMobile = false) => {
+    const isActive = !item.isAnchor && location.pathname === item.href;
+    const baseClasses = isMobile 
+      ? 'flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors'
+      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium';
+      
+    const activeClasses = isActive ? 'text-primary-600 dark:text-primary-400' : '';
+    
+    return (
+      <motion.div
+        key={item.name}
+        initial={{ opacity: 0, y: isMobile ? 0 : -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.1 }}
+      >
+        {item.isAnchor ? (
+          <a
+            href={item.href}
+            onClick={(e) => handleNavClick(e, item)}
+            className={`${baseClasses} ${activeClasses}`}
+          >
+            {item.icon && <span className="mr-2">{item.icon}</span>}
+            {item.name}
+          </a>
+        ) : (
+          <Link
+            to={item.href}
+            className={`${baseClasses} ${activeClasses} flex items-center`}
+            onClick={() => setIsOpen(false)}
+          >
+            {item.icon && <span className="mr-2">{item.icon}</span>}
+            {item.name}
+            {isActive && (
+              <span className="ml-2 w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full"></span>
+            )}
+          </Link>
+        )}
+      </motion.div>
+    );
   };
 
   return (
@@ -63,17 +124,9 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={(e) => handleNavClick(e, item.href)}
-              >
-                {item.name}
-              </motion.a>
+              <div key={item.name} className="flex items-center">
+                {renderNavItem(item, index, false)}
+              </div>
             ))}
             
             {/* Theme Toggle */}
@@ -82,6 +135,9 @@ const Navbar = () => {
               className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: navItems.length * 0.1 }}
             >
               {isDark ? <FiSun className="text-yellow-400" size={20} /> : <FiMoon className="text-gray-700" size={20} />}
             </motion.button>
@@ -115,16 +171,11 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 font-medium"
-                    onClick={(e) => handleNavClick(e, item.href)}
-                  >
-                    {item.name}
-                  </a>
+              <div className="py-4 space-y-2">
+                {navItems.map((item, index) => (
+                  <div key={item.name} className="px-2">
+                    {renderNavItem(item, index, true)}
+                  </div>
                 ))}
               </div>
             </motion.div>
