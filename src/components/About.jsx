@@ -15,7 +15,7 @@ const About = () => {
     },
     {
       icon: <FiBriefcase className="text-3xl" />,
-      title: "1.5+ Years Experience",
+      title: "2 Years Experience",
       description: "Hands-on experience with Java, Spring Boot, and Microservices architecture"
     },
     {
