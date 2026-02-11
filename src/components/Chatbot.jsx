@@ -4,7 +4,7 @@ import { FiSend, FiMessageSquare, FiX } from 'react-icons/fi';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // Initialize the Google Generative AI with your API key
-const genAI = new GoogleGenerativeAI('AIzaSyAXvnZOhYbrHnWWHsvslmgdhAd_OX_0Itg');
+const genAI = new GoogleGenerativeAI('AIzaSyA_qZH9fD4rY15_IBwK6xHsfIf1FOBCvtI');
 const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
 
 const Chatbot = () => {
