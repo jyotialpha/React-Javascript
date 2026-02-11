@@ -189,36 +189,14 @@ const QuestionDetail = () => {
                   </div>
                 </div>
                 
-                <div className="flex-grow relative rounded-lg overflow-hidden border border-gray-700">
-                  <div className="h-full">
-                    <div className="h-full relative">
-                      <SyntaxHighlighter
-                        language="java"
-                        style={document.documentElement.classList.contains('dark') ? vscDarkPlus : vs}
-                        customStyle={{
-                          margin: 0,
-                          padding: '1rem',
-                          background: 'transparent',
-                          height: '100%',
-                          fontSize: '0.875rem',
-                          lineHeight: '1.5',
-                        }}
-                        codeTagProps={{
-                          style: {
-                            fontFamily: 'monospace',
-                            display: 'block',
-                            whiteSpace: 'pre-wrap',
-                            wordBreak: 'break-word',
-                            overflowWrap: 'break-word',
-                            tabSize: 2,
-                          },
-                        }}
-                      >
-                        {code || '// Type your Java code here'}
-                      </SyntaxHighlighter>
-                    </div>
-                  </div>
-                </div>
+                <textarea
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  placeholder="// Type your Java code here"
+                  className="w-full h-full p-4 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-mono text-sm rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  spellCheck="false"
+                  style={{ tabSize: 2 }}
+                />
               </div>
 
               {/* Output */}
