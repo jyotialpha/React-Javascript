@@ -44,22 +44,20 @@ const Navbar = () => {
   const location = useLocation();
 
   const handleNavClick = (e, item) => {
-    e.preventDefault();
-    setIsOpen(false);
-    
     if (item.isAnchor) {
-      // Handle anchor links
+      e.preventDefault();
+      setIsOpen(false);
+      
       if (location.pathname !== '/') {
-        // If not on home page, navigate to home first
         window.location.href = `/${item.href}`;
       } else {
-        // If on home page, just scroll
-        const element = document.querySelector(item.href);
-        element?.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          const element = document.querySelector(item.href);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
       }
     } else {
-      // Handle router links
-      window.location.href = item.href;
+      setIsOpen(false);
     }
   };
   
@@ -107,7 +105,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      scrolled || isOpen ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16 md:h-20">
