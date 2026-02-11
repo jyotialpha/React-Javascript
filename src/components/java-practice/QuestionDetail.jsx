@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiChevronLeft, FiChevronRight, FiCopy, FiCheck, FiChevronDown, FiChevronUp, FiArrowLeft } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiCopy, FiCheck, FiChevronDown, FiChevronUp, FiArrowLeft, FiAlignLeft } from 'react-icons/fi';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { getQuestionById, getQuestionsByTopic } from '../../data/javaQuestions';
@@ -35,20 +35,49 @@ const QuestionDetail = () => {
     setIsSubmitting(true);
     setOutput('Running your code...');
     
-    // Simulate code execution
     setTimeout(() => {
       try {
-        if (code.includes('System.out.println("Hello, World!");')) {
-          setOutput('Hello, World!\n\n✅ Test cases passed!');
+        const testCases = question.testCases || [];
+        let allPassed = true;
+        let outputText = '';
+        
+        testCases.forEach((testCase, index) => {
+          const passed = validateTestCase(code, testCase);
+          if (passed) {
+            outputText += `✅ Test case ${index + 1} passed\n`;
+          } else {
+            outputText += `❌ Test case ${index + 1} failed\nExpected: ${testCase.output}\n`;
+            allPassed = false;
+          }
+        });
+        
+        if (allPassed) {
+          outputText += '\n🎉 All test cases passed!';
         } else {
-          setOutput('❌ Test failed. Expected output: Hello, World!');
+          outputText += '\n⚠️ Some test cases failed. Try again!';
         }
+        
+        setOutput(outputText);
       } catch (error) {
         setOutput(`Error: ${error.message}`);
       } finally {
         setIsSubmitting(false);
       }
     }, 1000);
+  };
+
+  const validateTestCase = (userCode, testCase) => {
+    // Simple validation - check if expected output keywords are in code
+    const expectedOutput = testCase.output.toLowerCase();
+    const codeLines = userCode.toLowerCase();
+    
+    // For Hello World
+    if (expectedOutput.includes('hello, world')) {
+      return codeLines.includes('system.out.println("hello, world!")');
+    }
+    
+    // For other cases, check if solution patterns match
+    return codeLines.includes('system.out.println');
   };
 
   const handleSubmit = () => {
@@ -68,6 +97,29 @@ const QuestionDetail = () => {
     navigator.clipboard.writeText(code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const formatCode = () => {
+    const formatted = code
+      .split('\n')
+      .map(line => line.trim())
+      .join('\n')
+      .replace(/\{/g, ' {\n')
+      .replace(/\}/g, '\n}\n')
+      .replace(/;/g, ';\n')
+      .split('\n')
+      .filter(line => line.trim())
+      .map((line, i, arr) => {
+        let indent = 0;
+        for (let j = 0; j < i; j++) {
+          if (arr[j].includes('{')) indent++;
+          if (arr[j].includes('}')) indent--;
+        }
+        if (line.includes('}')) indent--;
+        return '  '.repeat(Math.max(0, indent)) + line.trim();
+      })
+      .join('\n');
+    setCode(formatted);
   };
 
   const navigateToQuestion = (direction) => {
@@ -173,6 +225,13 @@ const QuestionDetail = () => {
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white">Your Code</h3>
                   <div className="flex space-x-2">
+                    <button
+                      onClick={formatCode}
+                      className="flex items-center px-2 py-1 text-xs text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      title="Format code"
+                    >
+                      <FiAlignLeft className="mr-1" /> Format
+                    </button>
                     <button
                       onClick={copyToClipboard}
                       className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"

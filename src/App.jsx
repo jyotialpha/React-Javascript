@@ -8,7 +8,9 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import Roadmap from './pages/Roadmap';
 import JavaPractice from './pages/JavaPractice';
+import CoreJava from './pages/CoreJava';
 import QuestionDetail from './components/java-practice/QuestionDetail';
 
 // Nested routes for Java practice section
@@ -41,7 +43,10 @@ function App() {
                     <Footer />
                   </>
                 } />
+                <Route path="/roadmap" element={<Roadmap />} />
                 <Route path="/java-practice/*" element={<JavaPracticeRoutes />} />
+                <Route path="/core-java" element={<CoreJava />} />
+                <Route path="/core-java/:topicId" element={<CoreJava />} />
               </Routes>
               <Chatbot />
             </div>

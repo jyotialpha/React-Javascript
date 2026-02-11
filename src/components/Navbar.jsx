@@ -34,8 +34,8 @@ const Navbar = () => {
     { name: 'Skills', href: '#skills', isAnchor: true },
     { name: 'Contact', href: '#contact', isAnchor: true },
     { 
-      name: 'Java Practice', 
-      href: '/java-practice', 
+      name: 'Roadmap', 
+      href: '/roadmap', 
       isAnchor: false,
       icon: <FiCode className="inline mr-1" />
     },
