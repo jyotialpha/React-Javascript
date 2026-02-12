@@ -76,7 +76,7 @@ export const coreJavaTopics = [
     title: 'Annotations',
     description: 'Built-in & Custom Annotations',
     icon: '@',
-    status: 'coming-soon',
+    status: 'active',
     order: 10
   }
 ];
@@ -88,6 +88,7 @@ import { multithreadingContent } from './multithreadingContent';
 import { java8FeaturesContent } from './java8FeaturesContent';
 import { fileIOContent } from './fileIOContent';
 import { genericsContent } from './genericsContent';
+import { annotationsContent } from './annotationsContent';
 
 export const coreJavaContent = {
   'oops-basics': {
@@ -1519,7 +1520,8 @@ Push notification sent!
   'multithreading': multithreadingContent,
   'java8-features': java8FeaturesContent,
   'file-io': fileIOContent,
-  'generics': genericsContent
+  'generics': genericsContent,
+  'annotations': annotationsContent
 };
 
 export const getCoreJavaTopicById = (topicId) => {
